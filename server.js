@@ -1,22 +1,21 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
-
 app.use(express.json());
 
-// Serve static site
+// Serve static files from /public
 app.use(express.static(path.join(__dirname, "public")));
 
-// Simple API endpoints (later you can replace with DB)
-app.get("/api/rfis", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "data", "rfis.json"));
-});
-
+// API: return assessments JSON
 app.get("/api/assessments", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "data", "assessments.json"));
+  const filePath = path.join(__dirname, "public", "data", "assessments.json");
+  if (!fs.existsSync(filePath)) return res.status(404).json({ error: "assessments.json not found" });
+  res.sendFile(filePath);
 });
 
+// Health check
 app.get("/health", (req, res) => res.status(200).send("OK"));
 
 const PORT = process.env.PORT || 3000;

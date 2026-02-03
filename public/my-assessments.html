@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Assessments</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body id="assessmentsPage">
+  <header class="header">
+    <div class="brand">RFI_PROJ</div>
+    <div class="user">
+      <span>Business Contributor</span>
+      <a href="/login.html" class="link">Logout</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="nav">
+      <a class="navlink" href="/index.html">Home</a>
+      <a class="navlink active" href="/my-assessments.html">My Assessments</a>
+      <a class="navlink" href="/my-rfis.html">My RFIs</a>
+    </nav>
+
+    <main class="main">
+      <div class="topbar">
+        <h1>My Assessments</h1>
+        <button id="createBtn" class="primary">Create New Assessment</button>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchBox" type="search" placeholder="Search my assessments..." />
+        <div id="status" class="status">—</div>
+      </div>
+
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Process Name</th>
+              <th>Content</th>
+              <th>Information Controller</th>
+              <th>Medium</th>
+              <th>Location</th>
+              <th>Security Class</th>
+              <th>PIB</th>
+              <th>FCT Function</th>
+              <th>FCT Activity</th>
+              <th>Status</th>
+              <th>Last Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="assessmentsBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

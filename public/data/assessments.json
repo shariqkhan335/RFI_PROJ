@@ -1,9 +1,44 @@
 [
   {
     "id": "ASMT-001",
-    "contentItem": "Assessment Services Branch - Inventory",
-    "risk": "Medium",
-    "action": "Review",
+    "processName": "Content Inventory Intake",
+    "content": "Branch intake email and form submissions",
+    "informationController": "Assessment Services Branch",
+    "medium": "Electronic",
+    "location": "SharePoint",
+    "securityClassification": "Protected A",
+    "pib": "Yes",
+    "fctFunction": "Program Delivery",
+    "fctActivity": "Assessment Services",
+    "status": "Draft",
     "lastUpdated": "2026-02-03"
+  },
+  {
+    "id": "ASMT-002",
+    "processName": "Case Review Notes",
+    "content": "Reviewer notes and decision records",
+    "informationController": "Assessment Services Branch",
+    "medium": "Electronic",
+    "location": "Network Drive",
+    "securityClassification": "Protected B",
+    "pib": "Yes",
+    "fctFunction": "Program Delivery",
+    "fctActivity": "Case Management",
+    "status": "In Review",
+    "lastUpdated": "2026-02-02"
+  },
+  {
+    "id": "ASMT-003",
+    "processName": "General Procedures",
+    "content": "Operating procedures and reference docs",
+    "informationController": "Assessment Services Branch",
+    "medium": "Electronic",
+    "location": "SharePoint",
+    "securityClassification": "Public",
+    "pib": "No",
+    "fctFunction": "Corporate Services",
+    "fctActivity": "Knowledge Management",
+    "status": "Approved",
+    "lastUpdated": "2026-01-28"
   }
 ]
