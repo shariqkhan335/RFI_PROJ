@@ -1,44 +1,57 @@
 [
   {
-    "id": "ASMT-001",
-    "processName": "Content Inventory Intake",
-    "content": "Branch intake email and form submissions",
-    "informationController": "Assessment Services Branch",
-    "medium": "Electronic",
-    "location": "SharePoint",
-    "securityClassification": "Protected A",
-    "pib": "Yes",
-    "fctFunction": "Program Delivery",
-    "fctActivity": "Assessment Services",
-    "status": "Draft",
-    "lastUpdated": "2026-02-03"
-  },
-  {
-    "id": "ASMT-002",
-    "processName": "Case Review Notes",
-    "content": "Reviewer notes and decision records",
-    "informationController": "Assessment Services Branch",
-    "medium": "Electronic",
-    "location": "Network Drive",
-    "securityClassification": "Protected B",
-    "pib": "Yes",
-    "fctFunction": "Program Delivery",
-    "fctActivity": "Case Management",
-    "status": "In Review",
-    "lastUpdated": "2026-02-02"
-  },
-  {
-    "id": "ASMT-003",
-    "processName": "General Procedures",
-    "content": "Operating procedures and reference docs",
-    "informationController": "Assessment Services Branch",
-    "medium": "Electronic",
-    "location": "SharePoint",
-    "securityClassification": "Public",
-    "pib": "No",
-    "fctFunction": "Corporate Services",
-    "fctActivity": "Knowledge Management",
+    "id": "1678886400000",
+    "processName": "Annual Risk Assessment",
     "status": "Approved",
-    "lastUpdated": "2026-01-28"
+    "pib": "Yes",
+    "securityClassification": "Confidential",
+    "content": "Comprehensive review of organizational risks and controls.",
+    "location": "Central Risk Management Department",
+    "createdDate": "2023-03-15",
+    "lastModified": "2023-03-20"
+  },
+  {
+    "id": "1678972800000",
+    "processName": "New Employee Onboarding Process",
+    "status": "In Review",
+    "pib": "No",
+    "securityClassification": "Unclassified",
+    "content": "Assessment of the new employee onboarding workflow for efficiency and compliance.",
+    "location": "HR Department",
+    "createdDate": "2023-03-16",
+    "lastModified": "2023-03-18"
+  },
+  {
+    "id": "1679059200000",
+    "processName": "Data Backup and Recovery Policy",
+    "status": "Draft",
+    "pib": "Yes",
+    "securityClassification": "Secret",
+    "content": "Draft assessment for the updated data backup and recovery policy.",
+    "location": "IT Operations",
+    "createdDate": "2023-03-17",
+    "lastModified": "2023-03-17"
+  },
+  {
+    "id": "1679145600000",
+    "processName": "Vendor Due Diligence Workflow",
+    "status": "Rejected",
+    "pib": "No",
+    "securityClassification": "Confidential",
+    "content": "Assessment of the process for vetting new vendors and third-party risks.",
+    "location": "Procurement Department",
+    "createdDate": "2023-03-18",
+    "lastModified": "2023-03-19"
+  },
+  {
+    "id": "1679232000000",
+    "processName": "Customer Support Escalation Path",
+    "status": "Approved",
+    "pib": "No",
+    "securityClassification": "Unclassified",
+    "content": "Review of the customer support ticket escalation procedures.",
+    "location": "Customer Service",
+    "createdDate": "2023-03-19",
+    "lastModified": "2023-03-22"
   }
 ]

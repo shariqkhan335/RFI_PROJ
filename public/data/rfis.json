@@ -1,8 +1,42 @@
 [
   {
-    "id": "RFI-001",
-    "title": "Content Inventory Prototype",
-    "status": "In Progress",
-    "lastUpdated": "2026-02-03"
+    "id": "RFI001",
+    "title": "Information Security Policy Review",
+    "status": "Approved",
+    "requestDate": "2023-01-15",
+    "dueDate": "2023-02-15",
+    "description": "Request for information regarding the updated information security policy."
+  },
+  {
+    "id": "RFI002",
+    "title": "Cloud Migration Strategy",
+    "status": "Submitted",
+    "requestDate": "2023-03-01",
+    "dueDate": "2023-04-01",
+    "description": "RFI for vendors on their cloud migration strategies and services."
+  },
+  {
+    "id": "RFI003",
+    "title": "Data Governance Framework",
+    "status": "Draft",
+    "requestDate": "2023-05-10",
+    "dueDate": "2023-06-10",
+    "description": "Draft RFI to gather insights on best practices for data governance frameworks."
+  },
+  {
+    "id": "RFI004",
+    "title": "AI Ethics Guidelines",
+    "status": "Rejected",
+    "requestDate": "2023-07-01",
+    "dueDate": "2023-08-01",
+    "description": "RFI to understand current industry standards and guidelines for AI ethics, but was deemed out of scope."
+  },
+  {
+    "id": "RFI005",
+    "title": "Network Infrastructure Upgrade",
+    "status": "Approved",
+    "requestDate": "2023-09-20",
+    "dueDate": "2023-10-20",
+    "description": "Request for proposals on upgrading the core network infrastructure."
   }
 ]

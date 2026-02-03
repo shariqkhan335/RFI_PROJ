@@ -1,20 +1,16 @@
 {
   "name": "rfi_proj",
   "version": "1.0.0",
-  "description": "@\"",
+  "description": "Pronghorn RFI_PROJ prototype",
   "main": "server.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pronghorn Project Code Generator",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1"
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
   }
 }

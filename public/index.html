@@ -1,21 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RFI_PROJ</title>
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment Services Branch - Content Inventory</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
-<body>
-  <h1>RFI_PROJ running ✅</h1>
-  <p>If you can see this, static hosting works.</p>
+<body class="bg-gray-100 font-sans antialiased">
 
-  <ul>
-    <li><a href="/my-rfis.html">My RFIs</a></li>
-    <li><a href="/my-assessments.html">My Assessments</a></li>
-    <li><a href="/login.html">Login</a></li>
-  </ul>
+    <div id="app" class="min-h-screen flex flex-col">
 
-  <script src="/assets/js/app.js"></script>
+        <!-- Header -->
+        <header class="bg-blue-800 text-white p-4 shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Assessment Services Branch</h1>
+                <nav>
+                    <ul class="flex space-x-4 items-center">
+                        <li><a href="#" class="hover:text-blue-200">User Name</a></li>
+                        <li><a href="#" class="bg-blue-700 hover:bg-blue-600 px-3 py-1 rounded-md">Logout</a></li>
+                        <!-- Optional Global Search - Placeholder for now -->
+                        <li>
+                            <input type="text" placeholder="Global Search..." class="px-3 py-1 rounded-md text-gray-800 text-sm">
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Layout with Sidebar Navigation -->
+        <div class="flex flex-1">
+            <!-- Sidebar Navigation -->
+            <aside class="w-64 bg-gray-800 text-white p-4 shadow-lg">
+                <nav>
+                    <ul>
+                        <li class="mb-2">
+                            <a href="my-assessments.html" class="block py-2 px-3 rounded-md hover:bg-blue-700 transition duration-200">My Assessments</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="all-assessments.html" class="block py-2 px-3 rounded-md hover:bg-blue-700 transition duration-200">All Assessments <span class="text-xs text-gray-400">(Role-Based)</span></a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="reports.html" class="block py-2 px-3 rounded-md hover:bg-blue-700 transition duration-200">Reports</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="admin.html" class="block py-2 px-3 rounded-md hover:bg-blue-700 transition duration-200">Administration <span class="text-xs text-gray-400">(Role-Based)</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 p-8">
+                <div class="container mx-auto">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Welcome to the Content Inventory Management System</h2>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            This system is designed to help the Assessment Services Branch capture, manage, and report on its **Content Inventory**. It supports retention/disposition planning, functional classification alignment (FCT), and ensures compliance with information management policies.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Use the navigation on the left to access your assessments, create new records, or view reports.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-medium text-gray-800 mb-3">My Assessments</h3>
+                            <p class="text-gray-600 mb-4">Manage your draft and in-review content inventory records.</p>
+                            <a href="my-assessments.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">Go to My Assessments</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-medium text-gray-800 mb-3">View Reports</h3>
+                            <p class="text-gray-600 mb-4">Access detailed reports and summaries of the content inventory.</p>
+                            <a href="reports.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">View Reports</a>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-medium text-gray-800 mb-3">System Information</h3>
+                            <p class="text-gray-600 mb-4">Learn more about the system's purpose and scope.</p>
+                            <button @click="showInfoModal = true" class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-200">Read More</button>
+                        </div>
+                    </div>
+
+                    <!-- Simple Modal for System Info -->
+                    <div v-if="showInfoModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
+                        <div class="relative p-8 bg-white w-1/2 max-w-2xl mx-auto rounded-lg shadow-lg">
+                            <h3 class="text-2xl font-bold mb-4">About This System</h3>
+                            <p class="mb-4">This application is a prototype for the Assessment Services Branch's Content Inventory Management System. It aims to demonstrate the functional user interface for creating, managing, and tracking Content Inventory records, supporting retention/disposition planning, and functional classification alignment (FCT).</p>
+                            <p class="mb-4">The prototype is built using Vue.js for interactivity and Tailwind CSS for styling, deployed as static HTML pages for client review.</p>
+                            <button @click="showInfoModal = false" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-200 text-gray-700 p-4 text-center text-sm shadow-inner mt-auto">
+            <div class="container mx-auto">
+                &copy; 2024 Assessment Services Branch. All rights reserved. | Version 1.0.0
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                showInfoModal: false
+            }
+        });
+    </script>
 </body>
 </html>

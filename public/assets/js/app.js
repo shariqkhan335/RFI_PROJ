@@ -1,110 +1,49 @@
-async function fetchJson(url) {
-  const res = await fetch(url, { headers: { "Accept": "application/json" } });
-  if (!res.ok) throw new Error(`Request failed: ${res.status} ${res.statusText}`);
-  return res.json();
+// This file can be used for global application-wide JavaScript or common utilities.
+// Specific page-related logic is kept within script tags in their respective HTML files for this prototype.
+
+// Example of a common utility (not strictly required by the prompt, but good practice)
+function showLoadingSpinner() {
+    // Implement a loading spinner display logic
+    console.log('Showing loading spinner...');
+    // e.g., document.getElementById('loadingSpinner').style.display = 'block';
 }
 
-function normalize(s) {
-  return (s ?? "").toString().toLowerCase().trim();
+function hideLoadingSpinner() {
+    // Implement a loading spinner hide logic
+    console.log('Hiding loading spinner...');
+    // e.g., document.getElementById('loadingSpinner').style.display = 'none';
 }
 
-function matchesKeyword(a, keyword) {
-  const k = normalize(keyword);
-  if (!k) return true;
-  const haystack = [
-    a.processName,
-    a.content,
-    a.location
-  ].map(normalize).join(" | ");
-  return haystack.includes(k);
-}
-
-function renderTable(rows) {
-  const tbody = document.querySelector("#assessmentsBody");
-  tbody.innerHTML = "";
-
-  if (!rows.length) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td colspan="12" style="padding: 12px;">No results.</td>`;
-    tbody.appendChild(tr);
-    return;
-  }
-
-  for (const a of rows) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td><a href="#" data-id="${a.id}" class="viewLink">${a.processName ?? ""}</a></td>
-      <td title="${a.content ?? ""}">${(a.content ?? "").slice(0, 40)}${(a.content ?? "").length > 40 ? "…" : ""}</td>
-      <td>${a.informationController ?? ""}</td>
-      <td>${a.medium ?? ""}</td>
-      <td>${a.location ?? ""}</td>
-      <td>${a.securityClassification ?? ""}</td>
-      <td>${a.pib ?? ""}</td>
-      <td>${a.fctFunction ?? ""}</td>
-      <td>${a.fctActivity ?? ""}</td>
-      <td>${a.status ?? ""}</td>
-      <td>${a.lastUpdated ?? ""}</td>
-      <td class="actions">
-        <button class="btn" data-action="view" data-id="${a.id}">View</button>
-        <button class="btn" data-action="edit" data-id="${a.id}" ${a.status === "Approved" ? "disabled" : ""}>Edit</button>
-        <button class="btn" data-action="submit" data-id="${a.id}" ${a.status === "Draft" ? "" : "disabled"}>Submit</button>
-      </td>
-    `;
-    tbody.appendChild(tr);
-  }
-}
-
-function wireActions(allRows) {
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("button[data-action]");
-    if (!btn) return;
-
-    const action = btn.getAttribute("data-action");
-    const id = btn.getAttribute("data-id");
-    const row = allRows.find(r => r.id === id);
-
-    if (action === "view") {
-      alert(`VIEW: ${row?.processName} (${id})`);
-    } else if (action === "edit") {
-      alert(`EDIT: ${row?.processName} (${id})`);
-    } else if (action === "submit") {
-      alert(`SUBMIT FOR REVIEW: ${row?.processName} (${id})`);
+// You could also centralize API calls here if they become more complex or shared
+// For now, simple fetch calls are embedded in the HTML script tags.
+/*
+async function fetchData(url, options = {}) {
+    showLoadingSpinner();
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            const errorBody = await response.json();
+            throw new Error(errorBody.error || `HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('API call failed:', error);
+        alert('An error occurred: ' + error.message);
+        throw error; // Re-throw to allow page-specific error handling
+    } finally {
+        hideLoadingSpinner();
     }
-  });
 }
+*/
 
-async function initMyAssessments() {
-  const statusEl = document.querySelector("#status");
-  const searchEl = document.querySelector("#searchBox");
+// Basic login check for the demo (can be moved to a shared utility if needed)
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname;
+    const publicPages = ['/', '/index.html', '/login.html']; // Pages that don't require login
 
-  try {
-    statusEl.textContent = "Loading assessments…";
-    const allRows = await fetchJson("/api/assessments");
-
-    let current = [...allRows];
-    renderTable(current);
-    wireActions(allRows);
-
-    statusEl.textContent = `${current.length} record(s)`;
-
-    searchEl.addEventListener("input", () => {
-      const kw = searchEl.value;
-      current = allRows.filter(a => matchesKeyword(a, kw));
-      renderTable(current);
-      statusEl.textContent = `${current.length} record(s)`;
-    });
-
-    document.querySelector("#createBtn").addEventListener("click", () => {
-      alert("Create New Assessment (placeholder)");
-    });
-
-  } catch (err) {
-    console.error(err);
-    statusEl.textContent = `Error: ${err.message}`;
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Only run on the My Assessments page
-  if (document.querySelector("#assessmentsPage")) initMyAssessments();
+    if (!publicPages.includes(currentPage) && !localStorage.getItem('currentUser')) {
+        // Uncomment the line below to enforce login for all non-public pages
+        // window.location.href = '/login.html';
+        console.warn('User not logged in (demo mode). Access granted for prototyping purposes.');
+    }
 });
