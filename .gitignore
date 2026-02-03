@@ -1,0 +1,21 @@
+@"
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# .NET
+bin/
+obj/
+
+# Python
+.venv/
+__pycache__/
+"@ | Set-Content .gitignore
